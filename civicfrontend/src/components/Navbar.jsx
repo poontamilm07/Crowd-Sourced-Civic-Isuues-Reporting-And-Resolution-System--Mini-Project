@@ -12,7 +12,7 @@ import {
 } from 'react-icons/fa';
 
 const Navbar = () => {
-  const { user, isLoggedIn, logout,
+  const { isLoggedIn, logout,
     getDashboardRoute } = useAuth();
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
