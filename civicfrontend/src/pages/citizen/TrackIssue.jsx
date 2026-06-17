@@ -5,8 +5,7 @@ import { toast } from 'react-toastify';
 import {
   FaCity, FaPlus, FaList, FaSearch,
   FaGlobe, FaUser, FaSignOutAlt,
-  FaChartBar, FaMapMarkerAlt,
-  FaCalendar, FaUserTie, FaHardHat,
+  FaChartBar
 } from 'react-icons/fa';
 import { useAuth } from '../../context/AuthContext';
 import { publicAPI } from '../../api/axios';
@@ -60,15 +59,15 @@ const TrackIssue = () => {
 
   // Auto track if code in URL params
   useEffect(() => {
-    const params = new URLSearchParams(
-      location.search
-    );
-    const code = params.get('code');
-    if (code) {
-      setIssueCode(code);
-      handleTrack(code);
-    }
-  }, []);
+  const params = new URLSearchParams(
+    location.search
+  );
+  const code = params.get('code');
+  if (code) {
+    setIssueCode(code);
+    handleTrack(code);
+  }
+}, [location.search]);
 
   const handleTrack = async (code) => {
     const searchCode = code || issueCode;
