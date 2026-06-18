@@ -11,7 +11,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = {
+    "http://localhost:3000",
+    "https://crowd-sourced-civic-issues-reportin.vercel.app"
+})
 public class AuthController {
 
     @Autowired
