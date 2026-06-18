@@ -21,11 +21,11 @@ public org.springframework.web.cors.CorsConfigurationSource corsConfigurationSou
     config.setAllowCredentials(true);
 
     config.setAllowedOrigins(List.of(
-            "http://localhost:3000",
-            "http://localhost:3001",
-            "http://127.0.0.1:3000",
-            "https://crowd-sourced-civic-issues-reportin.vercel.app"
-    ));
+    "http://localhost:3000",
+    "http://localhost:3001",
+    "http://127.0.0.1:3000",
+    "https://crowd-sourced-civic-isuues-reportin.vercel.app"
+));
 
     config.setAllowedMethods(List.of(
             "GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"
