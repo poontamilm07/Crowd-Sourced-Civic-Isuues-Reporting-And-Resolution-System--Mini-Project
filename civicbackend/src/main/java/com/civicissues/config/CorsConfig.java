@@ -22,10 +22,11 @@ public class CorsConfig implements WebMvcConfigurer {
         config.setAllowCredentials(true);
 
         config.setAllowedOrigins(List.of(
-                "http://localhost:3000",
-                "http://localhost:3001",
-                "http://127.0.0.1:3000"
-        ));
+    "http://localhost:3000",
+    "http://localhost:3001",
+    "http://127.0.0.1:3000",
+    "https://crowd-sourced-civic-issues-reportin.vercel.app"
+));
 
         config.setAllowedMethods(Arrays.asList(
                 "GET", "POST", "PUT",
