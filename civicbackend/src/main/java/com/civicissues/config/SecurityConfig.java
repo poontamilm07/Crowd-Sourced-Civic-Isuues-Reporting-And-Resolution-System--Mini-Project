@@ -28,7 +28,7 @@ public class SecurityConfig {
             HttpSecurity http) throws Exception {
 
         http
-                .cors(cors -> cors.configure(http))
+                .cors(cors -> {})
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(
@@ -36,26 +36,31 @@ public class SecurityConfig {
                         )
                 )
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(
-                                "/api/auth/**"
-                        ).permitAll()
-                        .requestMatchers(
-                                "/uploads/**"
-                        ).permitAll()
-                        .requestMatchers(
-                                "/api/public/**"
-                        ).permitAll()
-                        .requestMatchers(
-                                "/api/citizen/**"
-                        ).hasRole("CITIZEN")
-                        .requestMatchers(
-                                "/api/admin/**"
-                        ).hasRole("ADMIN")
-                        .requestMatchers(
-                                "/api/authority/**"
-                        ).hasRole("AUTHORITY")
-                        .anyRequest().authenticated()
-                )
+
+        .requestMatchers(HttpMethod.OPTIONS, "/**")
+        .permitAll()
+
+        .requestMatchers("/api/auth/**")
+        .permitAll()
+
+        .requestMatchers("/uploads/**")
+        .permitAll()
+
+        .requestMatchers("/api/public/**")
+        .permitAll()
+
+        .requestMatchers("/api/citizen/**")
+        .hasRole("CITIZEN")
+
+        .requestMatchers("/api/admin/**")
+        .hasRole("ADMIN")
+
+        .requestMatchers("/api/authority/**")
+        .hasRole("AUTHORITY")
+
+        .anyRequest()
+        .authenticated()
+)
                 .addFilterBefore(
                         jwtAuthFilter,
                         UsernamePasswordAuthenticationFilter
